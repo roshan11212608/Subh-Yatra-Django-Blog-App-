@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %} Contact{% endblock title %}
+{% block body %}
+{% if messages %}
+    <strong>
+    <ul class="messages mx-0 my-0 px-0">
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+            
+            {% if message.tags %} {% endif %} {{message}}
+             </div>
+        
+        {% endfor %}
+    </ul>
+    {% endif %}
+    </strong>
+<div class="container w-50 my-5">
+    <h1 class="text-center">Contact Us </h1>
+    <form method="post" action="/contact" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Enter Your Name</label>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+        
+          </div>
+        
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Write us</label>
+            <textarea name="message" class="form-control" id="" cols="30" rows="10"></textarea>
+        
+          </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+{% extends 'index.html'%}
+{% block body %}
+<div class="container w-50 my-5">
+    <h1 class="text-center">Add New Blog </h1>
+    <form method="post" action="/add" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Enter Title</label>
+            <input type="text" class="form-control" id="name" name="title" aria-describedby="emailHelp">
+        
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Enter Content</label>
+            <textarea name="content" class="form-control" id="" cols="30" rows="10"></textarea>
+        
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Select Image for Blog</label>
+            <input type="file" class="form-control" id="exampleInputPassword1" name="vlogImage">
+          </div>
+      
+    
+       
+        <button type="submit" class="btn btn-primary">Add Blog</button>
+      </form>
+</div>
+
+
+
+
+
+{% endblock body %}

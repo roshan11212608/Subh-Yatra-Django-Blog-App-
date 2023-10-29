@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %} Register{% endblock title %}
+{% block body %}
+{% if messages %}
+<strong>
+<ul class="messages mx-0 my-0 px-0">
+    {% for message in messages %}
+    <div class="alert alert-danger" role="alert">
+        
+        {% if message.tags %} {% endif %} {{message}}
+         </div>
+    
+    {% endfor %}
+</ul>
+{% endif %}
+</strong>
+
+
+
+
+
+<div class="container w-50 my-5">
+    <h1 class="text-center">Add New User </h1>
+    <form method="post" action="/register" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Enter First Name</label>
+            <input type="text" class="form-control" id="name" name="firstname" aria-describedby="emailHelp">
+        
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Enter Last Name</label>
+            <input type="text" class="form-control" id="name" name="lastname" aria-describedby="emailHelp">
+        
+          </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        
+        <select class="form-select mb-3" aria-label="Default select example" name="gender">
+            <option selected>Select Gender</option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+            <option value="3">Transgender</option>
+          </select>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Select Profile Pic</label>
+            <input type="file" class="form-control" id="exampleInputPassword1" name="file">
+          </div>
+      
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="confirm" name="confirm">
+          <label class="form-check-label" for="exampleCheck1">Confirm</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Add New</button>
+      </form>
+</div>
+
+
+
+
+{% endblock body %}
